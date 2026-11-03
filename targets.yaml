@@ -1,0 +1,131 @@
+# Ziel-Liste fuer das Verteilungs-Kit — Stand 18.10.2026.
+#
+# SO Funktioniert die Datei:
+# * `angle` = der Winkel fuer das AKTUELLE Video (Stand: Werwolf Folge 2,
+#   @Agenten-Protokoll). Vor JEDEM Push anpassen - pack baut Titel/Text
+#   sonst um das alte Thema.
+# * `keywords` = Sammelliste ueber alle Videos, watch.py sucht reddit-weit
+#   danach. Themen duerfen sich mischen (Strompreis + KI/Werwolf).
+# * pack baut Bloecke fuer ALLE Ziele - Eintraege, die nicht zum Video
+#   passen, bleiben draft und werden nicht freigegeben (Kommentar am
+#   Eintrag sagt, welches Thema er bedient).
+# * `rule`-Angaben sind aus threadotter.com abgelesen (Spiegel, Stand
+#   jeweils) und VOR dem ersten Post gegen die echte Sidebar pruefen -
+#   Spiegel koennen veraltet sein, Mods entscheiden.
+# FB-Gruppen und Quora.de fehlen absichtlich: erst konkrete Ziele
+# benennen, dann nachtragen. Englische Subs erst bei englischen Videos.
+
+# --- KI/Werwolf: passt zum aktuellen Kanal (Agenten-Protokoll) ---
+
+- id: reddit_ki_de
+  platform: reddit
+  name: r/KI_de
+  language: de
+  allows_selfpromo: false
+  rule: "PRUEFEN (threadotter 08/2026): Self-Promo unklar = keine Einwilligung; Deutsch Pflicht; Umfragen/Thesen-Anfragen werden gedownvoted"
+  tone: "ernst, faktenorientiert, news-style Headline"
+  link_policy: "keine explizite Linkregel -> ohne URL posten, Nennung im Klartext"
+  angle: "KI-Experiment: Acht Sprachmodelle spielen Werwolf - die Seherin nennt den Wolf, das Dorf haengt sie trotzdem"
+  keywords:
+    - werwolf
+    - ki agenten
+    - ki experiment
+    - sprachmodell
+    - social deduction
+    - spieltheorie
+
+- id: reddit_fragreddit_de
+  platform: reddit
+  name: r/FragReddit
+  language: de
+  allows_selfpromo: false
+  rule: "PRUEFEN (threadotter 10/2026): Self-Promo unklar; Format = kurze offene Frage, du/ihr, 1-2 Saetze Titel + kurzer Kontext"
+  tone: "locker, direkt, keine Werbeton"
+  link_policy: "keine explizite Linkregel -> standardmaessig ohne URL"
+  angle: "Kann man einer KI an der Stimme ansehen, wenn sie luegt?"
+  keywords:
+    - werwolf
+    - ki agenten
+    - luege erkennen
+
+# --- Strompreis/Geld: nur fuer Energie-Videos posten (Leuchtfeuer-Archiv) ---
+
+- id: reddit_finanzen_de
+  platform: reddit
+  name: r/Finanzen
+  language: de
+  allows_selfpromo: false
+  # Nur fuer Strompreis-/Geld-Videos freigeben, nicht fuer Werwolf.
+  rule: "PRUEFEN (threadotter 09/2026): Self-Promo unklar, wird ueber Removals geregelt; erste-Person-Headline mit konkreten Zahlen; Transparenz bei Affiliation"
+  tone: "informell, erste Person, Zahlen zuerst, kein Clickbait"
+  link_policy: "Links laut Regeln erlaubt; Klartext-Nennung wirkt besser als URL"
+  include_link: true
+  angle: "Was der Grenzstrompreis mit deiner Stromrechnung zu tun hat"
+  keywords:
+    - strompreis
+    - stromkosten
+    - energierechnung
+    - grenzstrom
+    - netzentgelte
+
+# --- Eigene Kanaele: themenunabhaengig ---
+
+- id: discord_eigen
+  platform: discord
+  name: Leuchtfeuer Community
+  language: de
+  channel: "#allgemein"
+  tone: "locker"
+  link_policy: "Link in den dafuer vorgesehenen Channel"
+  angle: "Neue Folge steht"
+
+- id: tiktok_eigen
+  platform: tiktok
+  name: TikTok Hauptkanal
+  language: de
+  tone: "knapp"
+  angle: "Der Moment, in dem die Seherin den Wolf beim Namen nennt - und das Dorf sie haengt"
+
+- id: instagram_eigen
+  platform: instagram
+  name: Instagram Hauptkanal
+  language: de
+  tone: "visuell, knapp"
+  angle: "Die Seherin deckt den Wolf auf - das Dorf haengt sie trotzdem"
+
+# --- Nur fuer Strompreis-/Energie-Videos freigeben ---
+
+- id: pinterest_strom
+  platform: pinterest
+  name: Pinterest Energie-Board
+  language: de
+  # Nur fuer Strompreis-Videos (Board-Thema Energie).
+  tone: "sachlich, suchbar"
+  angle: "Infografik Winterstrompreis"
+  keywords:
+    - strompreis
+    - energiesparen
+    - winterstrom
+
+# --- Kommentar-Vorlagen fuer Fremd-Videos, nach Thema waehlen ---
+
+- id: comment_ki
+  platform: comment
+  name: Grosse Videos im Themenfeld KI/Social Deduction
+  language: de
+  # Passt zum aktuellen Kanal: Kommentare unter grossen KI-/Spielen-Videos.
+  tone: "helfend, konkret, kein Eigenwerbe-Klang"
+  link_policy: "nie den eigenen Link; Mehrwert im Kommentar"
+  angle: "Warum Sprachmodelle bei Social-Deduction-Spielen ploetzlich stark sind"
+
+- id: comment_natur
+  platform: comment
+  name: Grosse Videos im Themenfeld Natur/Tiere
+  language: de
+  # Nur zu Natur-/Tier-Videos (Leuchtfeuer-Archiv) freigeben.
+  tone: "helfend, konkret"
+  link_policy: "nie den eigenen Link; Mehrwert im Kommentar"
+  angle: "Beobachtung aus der Folge konkret erklaeren"
+  keywords:
+    - tiere
+    - natur

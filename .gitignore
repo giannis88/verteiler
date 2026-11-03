@@ -1,0 +1,20 @@
+# Laufzeit-Zustand und Logs
+state.json
+logs/
+out/
+
+# Produktionsmaterial (Videos, fertige Assets)
+videos/
+
+# Zugangsdaten: niemals
+secrets.json
+.env
+.env.*
+*token*
+*cookie*
+*.key
+*.pem
+
+__pycache__/
+*.pyc
+.pytest_cache/
