@@ -36,6 +36,16 @@ uploader for the video platforms.
   JSON endpoints from this network; reading works via RSS, writing only via
   OAuth. That was checked before the design was fixed.
 
+## Run the tests
+
+```powershell
+python -m pytest
+```
+
+31 tests. They import the package as `verteiler`, so `pytest.ini` puts the
+parent directory on the path — `pytest` runs straight inside a normal clone,
+no install step.
+
 ## Layout
 
 | File | Role |
